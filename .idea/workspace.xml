@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="70de7948-65a2-4400-ad48-5ae6bfb3e2fe" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1cKIGdAWnje1fONCR1bI8TBLHmm" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.333069" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunManager">
+    <configuration name="AverageSensorReadings" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
+      <option name="MAIN_CLASS_NAME" value="io.github.streamingwithflink.chapter1.AverageSensorReadings" />
+      <module name="examples-java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.streamingwithflink.chapter1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AverageSensorReadings" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="70de7948-65a2-4400-ad48-5ae6bfb3e2fe" name="Default Changelist" comment="" />
+      <created>1590270763414</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1590270763414</updated>
+      <workItem from="1590270772315" duration="62000" />
+      <workItem from="1590270848827" duration="1454000" />
+      <workItem from="1590272329892" duration="814000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2060" y="426" width="675" height="584" key="#AverageSensorReadings" timestamp="1590271232623">
+      <screen x="0" y="28" width="3440" height="1379" />
+    </state>
+    <state x="2060" y="426" width="675" height="584" key="#AverageSensorReadings/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1590271232623" />
+    <state x="1866" y="375" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590271755448">
+      <screen x="0" y="28" width="3440" height="1379" />
+    </state>
+    <state x="1866" y="375" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1590271755448" />
+    <state width="1836" height="251" key="GridCell.Tab.0.bottom" timestamp="1590272355182">
+      <screen x="0" y="28" width="3440" height="1379" />
+    </state>
+    <state width="1836" height="251" key="GridCell.Tab.0.bottom/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1590272355182" />
+    <state width="1836" height="251" key="GridCell.Tab.0.center" timestamp="1590272355182">
+      <screen x="0" y="28" width="3440" height="1379" />
+    </state>
+    <state width="1836" height="251" key="GridCell.Tab.0.center/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1590272355182" />
+    <state width="1836" height="251" key="GridCell.Tab.0.left" timestamp="1590272355182">
+      <screen x="0" y="28" width="3440" height="1379" />
+    </state>
+    <state width="1836" height="251" key="GridCell.Tab.0.left/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1590272355182" />
+    <state width="1836" height="251" key="GridCell.Tab.0.right" timestamp="1590272355182">
+      <screen x="0" y="28" width="3440" height="1379" />
+    </state>
+    <state width="1836" height="251" key="GridCell.Tab.0.right/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1590272355182" />
+    <state width="1836" height="251" key="GridCell.Tab.1.bottom" timestamp="1590272355362">
+      <screen x="0" y="28" width="3440" height="1379" />
+    </state>
+    <state width="1836" height="251" key="GridCell.Tab.1.bottom/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1590272355362" />
+    <state width="1836" height="251" key="GridCell.Tab.1.center" timestamp="1590272355362">
+      <screen x="0" y="28" width="3440" height="1379" />
+    </state>
+    <state width="1836" height="251" key="GridCell.Tab.1.center/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1590272355362" />
+    <state width="1836" height="251" key="GridCell.Tab.1.left" timestamp="1590272355362">
+      <screen x="0" y="28" width="3440" height="1379" />
+    </state>
+    <state width="1836" height="251" key="GridCell.Tab.1.left/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1590272355362" />
+    <state width="1836" height="251" key="GridCell.Tab.1.right" timestamp="1590272355362">
+      <screen x="0" y="28" width="3440" height="1379" />
+    </state>
+    <state width="1836" height="251" key="GridCell.Tab.1.right/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1590272355362" />
+    <state x="1736" y="348" width="1445" height="732" key="SettingsEditor" timestamp="1590271441742">
+      <screen x="0" y="28" width="3440" height="1379" />
+    </state>
+    <state x="1736" y="348" width="1445" height="732" key="SettingsEditor/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1590271441742" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/io/github/streamingwithflink/chapter1/AverageSensorReadings.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
