@@ -8,3 +8,14 @@ The [Scala examples](https://github.com/streaming-with-flink/examples-scala) are
 <a href="http://shop.oreilly.com/product/0636920057321.do">
   <img width="240" src="https://covers.oreillystatic.com/images/0636920057321/cat.gif">
 </a>
+
+
+## Command
+
+```bash
+cd /media/henry.wu/sandbox/git.repo/flink-examples/src/main
+protoc -I=. -I=$GOPATH/src -I=$GOPATH/src/github.com/gogo/protobuf/protobuf \
+ --java_out=java resources/mazu-kubernetes-podwatcher-raw.proto
+protoc -I=. -I=$GOPATH/src -I=$GOPATH/src/github.com/gogo/protobuf/protobuf \
+ --java_out=java resources/mazu-kubernetes-podwatcher-enriched.proto
+```
