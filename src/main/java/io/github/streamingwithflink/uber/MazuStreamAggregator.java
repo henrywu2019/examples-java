@@ -251,7 +251,7 @@ public class MazuStreamAggregator {
     }
 
     // https://stackoverflow.com/questions/32453030/using-an-collectionsunmodifiablecollection-with-apache-flink
-    public static void main(String[] args) throws Exception {
+    public static void main2(String[] args) throws Exception {
         //RunLocalStreamingAggregator();
         //test();
         RunStreamingAggregator_Sliding();
