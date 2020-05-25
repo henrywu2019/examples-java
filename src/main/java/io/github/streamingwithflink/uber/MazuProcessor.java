@@ -1,81 +1,76 @@
 package io.github.streamingwithflink.uber;
 
-import com.google.protobuf.util.JsonFormat;
-import org.apache.flink.api.common.functions.FilterFunction;
-import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
-import org.apache.flink.api.java.ExecutionEnvironment;
-import org.apache.flink.api.java.functions.KeySelector;
-import org.apache.flink.api.java.tuple.Tuple2;
-import org.apache.flink.api.java.typeutils.RowTypeInfo;
-import org.apache.flink.api.java.typeutils.TupleTypeInfo;
-import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.connectors.kinesis.FlinkKinesisConsumer;
-import org.apache.flink.streaming.connectors.kinesis.FlinkKinesisProducer;
-import org.apache.flink.streaming.connectors.kinesis.config.ConsumerConfigConstants;
 import org.apache.flink.table.api.Table;
-import org.apache.flink.table.api.TableSchema;
 import org.apache.flink.table.api.Types;
 import org.apache.flink.table.api.java.StreamTableEnvironment;
-import org.apache.flink.table.sinks.CsvTableSink;
 import org.apache.flink.table.sinks.RetractStreamTableSink;
-import org.apache.flink.table.sinks.TableSink;
 import org.apache.flink.types.Row;
-import podmsgraw.MazuRecordRaw;
-import org.apache.flink.table.sources.StreamTableSource;
-
-import java.util.Properties;
-
-import static org.apache.flink.core.fs.FileSystem.WriteMode.OVERWRITE;
 
 // https://code.uberinternal.com/diffusion/ATATGXS/browse/master/handler/batch_kubernetes_collector.go$406
 public class MazuProcessor {
+
+    public final static String SOURCE_NAME = "running_pods_source";
+    public final static String SINK_NAME = "running_pods_sink";
+
     // https://stackoverflow.com/questions/32453030/using-an-collectionsunmodifiablecollection-with-apache-flink
     public static void main(String[] args) throws Exception {
         RunStreamingAggregator();
     }
 
+    public final static String[] SINK_FIELDS_NAMES = new String[]{
+            "pod_name",
+            "job_name",
+            "multiplier",
+            "start_time",
+            "end_time"
+    };
+
+    public final static TypeInformation[] SINK_TYPE_INFO = new TypeInformation[]{
+            Types.STRING(),
+            Types.STRING(),
+            Types.DOUBLE(),
+            Types.LONG(),
+            Types.LONG()
+    };
+
     // 1. filter out to get running pods stream
     private static void RunStreamingAggregator() throws Exception {
-        final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        final StreamTableEnvironment tableEnv = StreamTableEnvironment.create(env);
+        final StreamExecutionEnvironment exeEnv = StreamExecutionEnvironment.getExecutionEnvironment();
+        final StreamTableEnvironment tableEnv = StreamTableEnvironment.create(exeEnv);
+
+        // Create source and sink
         final MazuStreamTableSource src = new MazuStreamTableSource();
-        tableEnv.registerTableSource("running_pods_source", src);
+        final RetractStreamTableSink<Row> rsts = new MazuRunningPodsSink(MazuStreamTableSource.SOURCE_FIELDS_NAMES,
+                MazuStreamTableSource.SOURCE_TYPE_INFO);
 
-        // define the field names and types
-        final String[] fieldNames = {"job_name", "multiplier"};
-        final TypeInformation[] fieldTypes = {Types.STRING(), Types.DOUBLE()};
-
-        final MazuRunningPodsSink rsts = new MazuRunningPodsSink(fieldNames, fieldTypes);
+        // Register source and sink
+        tableEnv.registerTableSource(SOURCE_NAME, src);
         //final TableSink rsts = new CsvTableSink("/media/henry.wu/sandbox/data/running_pods_sink.csv", "|", 1, OVERWRITE);
-        tableEnv.registerTableSink("henry_sink", fieldNames, fieldTypes, rsts);
+        tableEnv.registerTableSink(SINK_NAME,
+                SINK_FIELDS_NAMES,
+                SINK_TYPE_INFO,
+                rsts);
 
-        Table in = tableEnv.scan("running_pods_source");
-        Table result = in.groupBy("job_name").select("job_name, multiplier.sum as total_multiplier");
-        result.insertInto("henry_sink");
+        // https://stackoverflow.com/questions/3491329/group-by-with-maxdate
+        // Query source table and insert to sink table
+        // option 1
+        /*final Table targetTable = tableEnv.scan(SOURCE_NAME);
+        final Table result = targetTable
+                .groupBy("job_name")
+                .select("job_name, multiplier.sum as multiplier, max(end_time) as end_time");
+                //.select("pod_name, job_name, multiplier, start_time");
+        result.insertInto(SINK_NAME);*/
 
-        env.execute("kubernetes-job-podcost-aggreagator");
+        // option 2
+        String sql = "insert into " + SINK_NAME
+                + " select t.pod_name, t.job_name, t.multiplier, t.start_time, r.last_time" +
+                " from (select pod_name, max(end_time) as last_time from "
+                + SOURCE_NAME
+                + " group by pod_name) r inner join " + SOURCE_NAME + " t on t.pod_name=r.pod_name and t.end_time=r.last_time";
+        tableEnv.sqlUpdate(sql);
+
+        exeEnv.execute(MazuProcessor.class.getSimpleName());
     }
-
-    // TODO: the transform calculation function should be added to this function!
-    // 1. calculation 2. convert back to String
-    private static String TransformPod(String d1) throws Exception {
-        try {
-            MazuRecordRaw.PodMessageRaw.Builder pmb = MazuRecordRaw.PodMessageRaw.newBuilder();
-            JsonFormat.parser().merge(d1, pmb);
-            MazuRecordRaw.PodMessageRaw m = pmb.setAsset("ass").setGpuCost(1.1).build(); // m is PodMessageRaw
-            // calculation here
-            return m.toString();
-        }
-        catch(com.google.protobuf.InvalidProtocolBufferException e) {
-            System.out.println(d1);
-            return "";
-        }
-    }
-
-
-
-
-
 }

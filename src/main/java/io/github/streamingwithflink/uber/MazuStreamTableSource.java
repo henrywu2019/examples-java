@@ -11,29 +11,42 @@ import org.apache.flink.types.Row;
 
 // https://www.programcreek.com/java-api-examples/?code=dataArtisans%2Fflink-training-exercises%2Fflink-training-exercises-master%2Fsrc%2Fmain%2Fjava%2Fcom%2Fdataartisans%2Fflinktraining%2Fexercises%2Ftable_java%2Fsources%2FTaxiRideTableSource.java
 class MazuStreamTableSource implements StreamTableSource<Row> {
+
+    public final static String[] SOURCE_FIELDS_NAMES = new String[]{
+            "pod_name",
+            "job_name",
+            "multiplier",
+            "start_time",
+            "end_time"
+    };
+
+    public final static TypeInformation[] SOURCE_TYPE_INFO = new TypeInformation[]{
+            Types.STRING(),
+            Types.STRING(),
+            Types.DOUBLE(),
+            Types.LONG(),
+            Types.LONG()
+    };
+
     @Override
-    public DataStream<Row> getDataStream(StreamExecutionEnvironment env){
+    public DataStream<Row> getDataStream(StreamExecutionEnvironment env) {
         // The source is a datastream of String from Kinesis
-        DataStream<String> src =Utils.createSourceFromStaticConfig(env);
-        final DataStream<Row> d= src
+        final DataStream<String> src = Utils.createSourceFromStaticConfig(env);
+        final DataStream<Row> dataStream = src
                 .map(value -> Utils.StringToPodMessageRaw(value)) // String to PodMessageRaw
-                .filter(new Utils.RunningPodFilter()) // Filter out end_time != -1
+                //.filter(new Utils.RunningPodFilter()) // Filter out end_time != -1
                 .map(v -> Utils.ObjToRow(v))
                 .returns(getReturnType()); // Convert PodMessageRaw to Row
-        return d;
+        return dataStream;
     }
 
     @Override
     public TypeInformation<Row> getReturnType() {
-        final RowTypeInfo ri = new RowTypeInfo(new TypeInformation[]{Types.STRING(), Types.DOUBLE()},
-                new String[] {"job_name", "multiplier"});
-        return ri;
+        return new RowTypeInfo(SOURCE_TYPE_INFO, SOURCE_FIELDS_NAMES);
     }
 
     @Override
     public TableSchema getTableSchema() {
-        return new TableSchema(
-                new String[] {"job_name", "multiplier"},
-                new TypeInformation[] {Types.STRING(), Types.DOUBLE()});
+        return new TableSchema(SOURCE_FIELDS_NAMES, SOURCE_TYPE_INFO);
     }
 }

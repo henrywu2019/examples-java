@@ -1,22 +1,15 @@
 package io.github.streamingwithflink.uber;
 
-import io.github.streamingwithflink.util.SafeCounterWithoutLock;
-import org.apache.derby.iapi.types.DataType;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.api.java.tuple.Tuple2;
-import org.apache.flink.api.java.typeutils.RowTypeInfo;
 import org.apache.flink.api.java.typeutils.TupleTypeInfo;
 import org.apache.flink.streaming.api.datastream.DataStream;
-import org.apache.flink.streaming.api.datastream.DataStreamSink;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
 import org.apache.flink.table.api.TableSchema;
 import org.apache.flink.table.api.Types;
 import org.apache.flink.table.sinks.RetractStreamTableSink;
 import org.apache.flink.table.sinks.TableSink;
-import org.apache.flink.table.sinks.TableSinkBase;
 import org.apache.flink.types.Row;
-
-import java.util.Optional;
 
 // refer to: https://github.com/apache/flink/blob/master/flink-table/flink-sql-client/src/main/java/org/apache/flink/table/client/gateway/local/CollectStreamTableSink.java
 
@@ -57,16 +50,17 @@ class MazuRunningPodsSink implements RetractStreamTableSink<Row> {
     @Override
     public void emitDataStream(DataStream<Tuple2<Boolean, Row>> dataStream) {
         //dataStream.print(); // for debugging
-        dataStream.addSink(new MySinkFunction());
+        dataStream.addSink(new MySinkFunction()).name(this.getClass().getSimpleName()).setParallelism(1);
     }
 
     private static class MySinkFunction extends RichSinkFunction<Tuple2<Boolean, Row>> {
         public MySinkFunction() {
         }
 
+        // TODO - to write to S3
         @Override
         public void invoke(Tuple2<Boolean, Row> value, Context context) throws Exception {
-            Boolean flag = value.f0;
+            final Boolean flag = value.f0;
             if (flag) {
                 System.out.println(scwl.getValue() + ". Add " + value);
             } else {

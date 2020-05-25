@@ -53,7 +53,12 @@ public class Utils {
 
 
     public static Row ObjToRow(MazuRecordRaw.PodMessageRaw data) {
-        return Row.of(data.getJobName(), data.getMultiplier());
+        return Row.of(data.getPodName(),
+                data.getJobName(),
+                data.getMultiplier(),
+                data.getStartTime(),
+                data.getEndTime()
+                );
     }
 
     public static class RunningPodFilter implements FilterFunction<MazuRecordRaw.PodMessageRaw> {

@@ -1,4 +1,4 @@
-package io.github.streamingwithflink.util;
+package io.github.streamingwithflink.uber;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

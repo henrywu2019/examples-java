@@ -19,3 +19,42 @@ protoc -I=. -I=$GOPATH/src -I=$GOPATH/src/github.com/gogo/protobuf/protobuf \
 protoc -I=. -I=$GOPATH/src -I=$GOPATH/src/github.com/gogo/protobuf/protobuf \
  --java_out=java resources/mazu-kubernetes-podwatcher-enriched.proto
 ```
+
+
+Data Stream:
+```
+pod_name, job_name, multiplier, start_time, end_time
+0, 1, 0.1, 0, -1
+1, 1, 0.1, 0, -1
+2, 2, 0.1, 0, -1
+3, 2, 0.1, 0, -1
+0, 1, 0.1, 0, 1
+```
+
+`dataStream.filter(end_time<0)` will generate this data:
+
+```$xslt
+pod_name, job_name, multiplier, start_time, end_time
+0, 1, 0.1, 0, -1
+1, 1, 0.1, 0, -1
+2, 2, 0.1, 0, -1
+3, 2, 0.1, 0, -1
+```
+
+When the fifth row `0, 1, 0.1, 0, 1` comes, we want remove(retract) the first row, and then we get two streams:
+
+(running pods stream)
+```$xslt
+pod_name, job_name, multiplier, start_time, end_time
+1, 1, 0.1, 0, -1
+2, 2, 0.1, 0, -1
+3, 2, 0.1, 0, -1
+```
+
+and:
+
+(finished pods stream)
+```$xslt
+pod_name, job_name, multiplier, start_time, end_time
+0, 1, 0.1, 0, 1
+```
