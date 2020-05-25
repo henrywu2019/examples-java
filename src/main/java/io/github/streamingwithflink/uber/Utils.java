@@ -8,6 +8,7 @@ import org.apache.flink.api.java.functions.KeySelector;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.connectors.kinesis.FlinkKinesisConsumer;
+import org.apache.flink.streaming.connectors.kinesis.FlinkKinesisProducer;
 import org.apache.flink.streaming.connectors.kinesis.config.ConsumerConfigConstants;
 import org.apache.flink.types.Row;
 import podmsgraw.MazuRecordRaw;
@@ -28,6 +29,15 @@ public class Utils {
         inputProperties.setProperty(ConsumerConfigConstants.AWS_CREDENTIALS_PROVIDER, "PROFILE");
         inputProperties.setProperty(ConsumerConfigConstants.AWS_PROFILE_NAME, "UberATGProd/ATGEng");
         return env.addSource(new FlinkKinesisConsumer<>(inputStreamName, new SimpleStringSchema(), inputProperties));
+    }
+
+    public static FlinkKinesisProducer<String> createSinkFromStaticConfig() {
+        Properties outputProperties = new Properties();
+        outputProperties.setProperty(ConsumerConfigConstants.AWS_REGION, Utils.region);
+        FlinkKinesisProducer<String> sink = new FlinkKinesisProducer<>(new SimpleStringSchema(), outputProperties);
+        sink.setDefaultStream(Utils.outputStreamName);
+        sink.setDefaultPartition("0");
+        return sink;
     }
 
     public static MazuRecordRaw.PodMessageRaw StringToPodMessageRaw(String d1) throws Exception {
