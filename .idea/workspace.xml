@@ -2,18 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70de7948-65a2-4400-ad48-5ae6bfb3e2fe" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/streamingwithflink/mazu/StreamAggregator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/streamingwithflink/uber/MazuProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/streamingwithflink/uber/MazuProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/streamingwithflink/uber/MazuRunningPodsSink.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/streamingwithflink/uber/MazuRunningPodsSink.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/streamingwithflink/uber/MazuStreamTableSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/streamingwithflink/uber/MazuStreamTableSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/streamingwithflink/uber/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/streamingwithflink/uber/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/streamingwithflink/util/SafeCounterWithoutLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/streamingwithflink/uber/SafeCounterWithoutLock.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -24,6 +23,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1cKIGdAWnje1fONCR1bI8TBLHmm" />
   <component name="ProjectViewState">
@@ -40,28 +42,17 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.333069" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="io.github.streamingwithflink.mazu" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MazuProcessor">
-    <configuration name="AverageSensorReadings" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
-      <option name="MAIN_CLASS_NAME" value="io.github.streamingwithflink.chapter1.AverageSensorReadings" />
-      <module name="examples-java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.github.streamingwithflink.chapter1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.StreamAggregator">
     <configuration name="MazuProcessor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
       <option name="MAIN_CLASS_NAME" value="io.github.streamingwithflink.uber.MazuProcessor" />
@@ -104,6 +95,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StreamAggregator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
+      <option name="MAIN_CLASS_NAME" value="io.github.streamingwithflink.mazu.StreamAggregator" />
+      <module name="examples-java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.streamingwithflink.mazu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TableExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
       <option name="MAIN_CLASS_NAME" value="io.github.streamingwithflink.batchtableaggregation.TableExample" />
@@ -119,19 +124,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.AverageSensorReadings" />
       <item itemvalue="Application.MyDynamicTable" />
       <item itemvalue="Application.TableExample" />
       <item itemvalue="Application.MazuStreamAggregator" />
       <item itemvalue="Application.MazuProcessor" />
+      <item itemvalue="Application.StreamAggregator" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StreamAggregator" />
         <item itemvalue="Application.MazuProcessor" />
         <item itemvalue="Application.MyDynamicTable" />
         <item itemvalue="Application.MazuStreamAggregator" />
         <item itemvalue="Application.TableExample" />
-        <item itemvalue="Application.AverageSensorReadings" />
       </list>
     </recent_temporary>
   </component>
@@ -155,6 +160,9 @@
       <workItem from="1590291243690" duration="2886000" />
       <workItem from="1590296480822" duration="3714000" />
       <workItem from="1590336728022" duration="31645000" />
+      <workItem from="1592001384936" duration="851000" />
+      <workItem from="1592080270672" duration="975000" />
+      <workItem from="1592081271107" duration="973000" />
     </task>
     <servers />
   </component>
@@ -166,10 +174,10 @@
       <screen x="0" y="28" width="3440" height="1379" />
     </state>
     <state x="2060" y="426" width="675" height="584" key="#AverageSensorReadings/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1590271232623" />
-    <state x="1866" y="375" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590295789477">
+    <state x="612" y="353" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592081818282">
       <screen x="0" y="28" width="3440" height="1379" />
     </state>
-    <state x="1866" y="375" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1590295789477" />
+    <state x="612" y="353" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1592081818282" />
     <state x="2093" y="523" width="784" height="392" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1590291105913">
       <screen x="0" y="28" width="3440" height="1379" />
     </state>
@@ -178,50 +186,62 @@
       <screen x="0" y="28" width="3440" height="1379" />
     </state>
     <state x="1200" y="410" width="1011" height="583" key="#com.intellij.ide.util.MemberChooser/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1590359686200" />
-    <state width="1612" height="348" key="GridCell.Tab.0.bottom" timestamp="1590380762407">
+    <state x="2162" y="640" width="805" height="156" key="GitCloneDialog" timestamp="1592080479114">
+      <screen x="0" y="28" width="3440" height="1379" />
+    </state>
+    <state x="2162" y="640" width="805" height="156" key="GitCloneDialog/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1592080479114" />
+    <state width="2426" height="399" key="GridCell.Tab.0.bottom" timestamp="1592082213595">
       <screen x="0" y="28" width="3440" height="1379" />
     </state>
     <state width="1616" height="240" key="GridCell.Tab.0.bottom/0.28.3340.1379/3440.0.3440.1440@0.28.3340.1379" timestamp="1590302302962" />
-    <state width="1612" height="348" key="GridCell.Tab.0.bottom/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1590380762407" />
-    <state width="1612" height="348" key="GridCell.Tab.0.center" timestamp="1590380762407">
+    <state width="2426" height="399" key="GridCell.Tab.0.bottom/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1592082213595" />
+    <state width="1904" height="156" key="GridCell.Tab.0.bottom/1920.0.3440.1440/1575.28.345.1052/5360.0.3440.1440@1920.0.3440.1440" timestamp="1591940075968" />
+    <state width="2426" height="399" key="GridCell.Tab.0.center" timestamp="1592082213595">
       <screen x="0" y="28" width="3440" height="1379" />
     </state>
     <state width="1616" height="240" key="GridCell.Tab.0.center/0.28.3340.1379/3440.0.3440.1440@0.28.3340.1379" timestamp="1590302302962" />
-    <state width="1612" height="348" key="GridCell.Tab.0.center/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1590380762407" />
-    <state width="1612" height="348" key="GridCell.Tab.0.left" timestamp="1590380762407">
+    <state width="2426" height="399" key="GridCell.Tab.0.center/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1592082213595" />
+    <state width="1904" height="156" key="GridCell.Tab.0.center/1920.0.3440.1440/1575.28.345.1052/5360.0.3440.1440@1920.0.3440.1440" timestamp="1591940075968" />
+    <state width="2426" height="399" key="GridCell.Tab.0.left" timestamp="1592082213594">
       <screen x="0" y="28" width="3440" height="1379" />
     </state>
     <state width="1616" height="240" key="GridCell.Tab.0.left/0.28.3340.1379/3440.0.3440.1440@0.28.3340.1379" timestamp="1590302302962" />
-    <state width="1612" height="348" key="GridCell.Tab.0.left/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1590380762407" />
-    <state width="1612" height="348" key="GridCell.Tab.0.right" timestamp="1590380762407">
+    <state width="2426" height="399" key="GridCell.Tab.0.left/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1592082213594" />
+    <state width="1904" height="156" key="GridCell.Tab.0.left/1920.0.3440.1440/1575.28.345.1052/5360.0.3440.1440@1920.0.3440.1440" timestamp="1591940075968" />
+    <state width="2426" height="399" key="GridCell.Tab.0.right" timestamp="1592082213595">
       <screen x="0" y="28" width="3440" height="1379" />
     </state>
     <state width="1616" height="240" key="GridCell.Tab.0.right/0.28.3340.1379/3440.0.3440.1440@0.28.3340.1379" timestamp="1590302302962" />
-    <state width="1612" height="348" key="GridCell.Tab.0.right/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1590380762407" />
-    <state width="1612" height="348" key="GridCell.Tab.1.bottom" timestamp="1590380759442">
+    <state width="2426" height="399" key="GridCell.Tab.0.right/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1592082213595" />
+    <state width="1904" height="156" key="GridCell.Tab.0.right/1920.0.3440.1440/1575.28.345.1052/5360.0.3440.1440@1920.0.3440.1440" timestamp="1591940075968" />
+    <state width="2426" height="399" key="GridCell.Tab.1.bottom" timestamp="1592082102007">
       <screen x="0" y="28" width="3440" height="1379" />
     </state>
     <state width="1616" height="240" key="GridCell.Tab.1.bottom/0.28.3340.1379/3440.0.3440.1440@0.28.3340.1379" timestamp="1590302302962" />
-    <state width="1612" height="348" key="GridCell.Tab.1.bottom/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1590380759442" />
-    <state width="1612" height="348" key="GridCell.Tab.1.center" timestamp="1590380759441">
+    <state width="2426" height="399" key="GridCell.Tab.1.bottom/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1592082102007" />
+    <state width="1904" height="156" key="GridCell.Tab.1.bottom/1920.0.3440.1440/1575.28.345.1052/5360.0.3440.1440@1920.0.3440.1440" timestamp="1591940075968" />
+    <state width="2426" height="399" key="GridCell.Tab.1.center" timestamp="1592082102007">
       <screen x="0" y="28" width="3440" height="1379" />
     </state>
     <state width="1616" height="240" key="GridCell.Tab.1.center/0.28.3340.1379/3440.0.3440.1440@0.28.3340.1379" timestamp="1590302302962" />
-    <state width="1612" height="348" key="GridCell.Tab.1.center/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1590380759441" />
-    <state width="1612" height="348" key="GridCell.Tab.1.left" timestamp="1590380759441">
+    <state width="2426" height="399" key="GridCell.Tab.1.center/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1592082102007" />
+    <state width="1904" height="156" key="GridCell.Tab.1.center/1920.0.3440.1440/1575.28.345.1052/5360.0.3440.1440@1920.0.3440.1440" timestamp="1591940075968" />
+    <state width="2426" height="399" key="GridCell.Tab.1.left" timestamp="1592082102007">
       <screen x="0" y="28" width="3440" height="1379" />
     </state>
     <state width="1616" height="240" key="GridCell.Tab.1.left/0.28.3340.1379/3440.0.3440.1440@0.28.3340.1379" timestamp="1590302302962" />
-    <state width="1612" height="348" key="GridCell.Tab.1.left/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1590380759441" />
-    <state width="1612" height="348" key="GridCell.Tab.1.right" timestamp="1590380759441">
+    <state width="2426" height="399" key="GridCell.Tab.1.left/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1592082102007" />
+    <state width="1904" height="156" key="GridCell.Tab.1.left/1920.0.3440.1440/1575.28.345.1052/5360.0.3440.1440@1920.0.3440.1440" timestamp="1591940075968" />
+    <state width="2426" height="399" key="GridCell.Tab.1.right" timestamp="1592082102007">
       <screen x="0" y="28" width="3440" height="1379" />
     </state>
     <state width="1616" height="240" key="GridCell.Tab.1.right/0.28.3340.1379/3440.0.3440.1440@0.28.3340.1379" timestamp="1590302302962" />
-    <state width="1612" height="348" key="GridCell.Tab.1.right/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1590380759441" />
-    <state x="1490" y="302" width="1445" height="732" key="SettingsEditor" timestamp="1590276852253">
+    <state width="2426" height="399" key="GridCell.Tab.1.right/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1592082102007" />
+    <state width="1904" height="156" key="GridCell.Tab.1.right/1920.0.3440.1440/1575.28.345.1052/5360.0.3440.1440@1920.0.3440.1440" timestamp="1591940075968" />
+    <state x="505" y="337" width="1445" height="732" key="SettingsEditor" timestamp="1592081750755">
       <screen x="0" y="28" width="3440" height="1379" />
     </state>
-    <state x="1490" y="302" width="1445" height="732" key="SettingsEditor/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1590276852253" />
+    <state x="505" y="337" width="1445" height="732" key="SettingsEditor/0.28.3440.1379/3440.0.3440.1440@0.28.3440.1379" timestamp="1592081750755" />
     <state x="1077" y="237" width="1662" height="1047" key="dock-window-1" timestamp="1590344684780">
       <screen x="0" y="28" width="3440" height="1379" />
     </state>
@@ -294,6 +314,31 @@
           <url>file://$PROJECT_DIR$/src/main/java/io/github/streamingwithflink/externalsink/MyDynamicTable.java</url>
           <line>39</line>
           <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/io/github/streamingwithflink/uber/MazuProcessor.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/io/github/streamingwithflink/uber/MazuStreamAggregator.java</url>
+          <line>119</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/io/github/streamingwithflink/mazu/StreamAggregator.java</url>
+          <line>152</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/io/github/streamingwithflink/mazu/StreamAggregator.java</url>
+          <line>126</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/io/github/streamingwithflink/mazu/StreamAggregator.java</url>
+          <line>199</line>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
