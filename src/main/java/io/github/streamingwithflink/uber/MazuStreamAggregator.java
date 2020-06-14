@@ -86,7 +86,7 @@ public class MazuStreamAggregator {
         @Override
         public PodMessageRaw reduce(PodMessageRaw p1, PodMessageRaw p2) throws Exception {
             PodMessageRaw.Builder pmb = PodMessageRaw.newBuilder(p1);
-            return pmb.setCpuRequested(1).setJobName("henry.wu").build();
+            return pmb.setCpuRequested(1).setPodName("henry.wu").build();
         }};
 
     private static void RunStreamingAggregator2() throws Exception {
@@ -195,7 +195,7 @@ public class MazuStreamAggregator {
         Message.Builder pb = PodMessageRaw.newBuilder();
         PodMessageRaw.Builder pmb = PodMessageRaw.newBuilder();
         JsonFormat.parser().merge(d1, pmb);
-        PodMessageRaw m = pmb.setAsset("ass").build(); // m is PodMessageRaw
+        PodMessageRaw m = pmb.setPodName("ass").build(); // m is PodMessageRaw
         // calculation here
         return m.toString();
     }
@@ -206,7 +206,7 @@ public class MazuStreamAggregator {
             Message.Builder pb = PodMessageRaw.newBuilder();
             PodMessageRaw.Builder pmb = PodMessageRaw.newBuilder();
             JsonFormat.parser().merge(d1, pmb);
-            PodMessageRaw m = pmb.setAsset("ass").build(); // m is PodMessageRaw
+            PodMessageRaw m = pmb.setPodName("ass").build(); // m is PodMessageRaw
             // calculation here
             return m;
         }
@@ -261,7 +261,7 @@ public class MazuStreamAggregator {
             implements KeySelector<PodMessageRaw, String> {
         @Override
         public String getKey(PodMessageRaw value) {
-            return value.getJobName();
+            return value.getPodName();
         }
     }
 }

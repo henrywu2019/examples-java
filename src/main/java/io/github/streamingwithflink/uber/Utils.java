@@ -54,8 +54,6 @@ public class Utils {
 
     public static Row ObjToRow(MazuRecordRaw.PodMessageRaw data) {
         return Row.of(data.getPodName(),
-                data.getJobName(),
-                data.getMultiplier(),
                 data.getStartTime(),
                 data.getEndTime()
                 );
@@ -72,7 +70,7 @@ public class Utils {
             implements KeySelector<MazuRecordRaw.PodMessageRaw, String> {
         @Override
         public String getKey(MazuRecordRaw.PodMessageRaw value) {
-            return value.getJobName();
+            return value.getPodName();
         }
     }
 }

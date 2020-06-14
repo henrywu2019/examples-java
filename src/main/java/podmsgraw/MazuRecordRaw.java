@@ -31,35 +31,23 @@ public final class MazuRecordRaw {
         getPodNameBytes();
 
     /**
-     * <code>string job_name = 2;</code>
-     * @return The jobName.
-     */
-    java.lang.String getJobName();
-    /**
-     * <code>string job_name = 2;</code>
-     * @return The bytes for jobName.
-     */
-    com.google.protobuf.ByteString
-        getJobNameBytes();
-
-    /**
-     * <code>int64 start_time = 3;</code>
+     * <code>int64 start_time = 2;</code>
      * @return The startTime.
      */
     long getStartTime();
 
     /**
-     * <code>int64 end_time = 4;</code>
+     * <code>int64 end_time = 3;</code>
      * @return The endTime.
      */
     long getEndTime();
 
     /**
      * <pre>
-     * requested resources
+     * CPU - MilliValue
      * </pre>
      *
-     * <code>int64 cpu_requested = 5 [(.gogoproto.jsontag) = "cpu_requested"];</code>
+     * <code>int64 cpu_requested = 4;</code>
      * @return The cpuRequested.
      */
     long getCpuRequested();
@@ -69,7 +57,7 @@ public final class MazuRecordRaw {
      * GPU - MilliValue
      * </pre>
      *
-     * <code>int64 gpu_requested = 6 [(.gogoproto.jsontag) = "gpu_requested"];</code>
+     * <code>int64 gpu_requested = 5;</code>
      * @return The gpuRequested.
      */
     long getGpuRequested();
@@ -79,108 +67,60 @@ public final class MazuRecordRaw {
      * Memory - Value
      * </pre>
      *
-     * <code>int64 memory_requested = 7 [(.gogoproto.jsontag) = "memory_requested"];</code>
+     * <code>int64 memory_requested = 6;</code>
      * @return The memoryRequested.
      */
     long getMemoryRequested();
 
     /**
-     * <pre>
-     * derived values
-     * </pre>
-     *
-     * <code>double cpu_cost = 8 [(.gogoproto.jsontag) = "cpu_cost"];</code>
-     * @return The cpuCost.
+     * <code>map&lt;string, string&gt; labels = 7;</code>
      */
-    double getCpuCost();
+    int getLabelsCount();
+    /**
+     * <code>map&lt;string, string&gt; labels = 7;</code>
+     */
+    boolean containsLabels(
+        java.lang.String key);
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabels();
+    /**
+     * <code>map&lt;string, string&gt; labels = 7;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabelsMap();
+    /**
+     * <code>map&lt;string, string&gt; labels = 7;</code>
+     */
 
+    java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
     /**
-     * <code>double gpu_cost = 9 [(.gogoproto.jsontag) = "gpu_cost"];</code>
-     * @return The gpuCost.
+     * <code>map&lt;string, string&gt; labels = 7;</code>
      */
-    double getGpuCost();
 
-    /**
-     * <code>double memory_cost = 10 [(.gogoproto.jsontag) = "memory_cost"];</code>
-     * @return The memoryCost.
-     */
-    double getMemoryCost();
-
-    /**
-     * <code>double multiplier = 11 [(.gogoproto.jsontag) = "multiplier"];</code>
-     * @return The multiplier.
-     */
-    double getMultiplier();
-
-    /**
-     * <code>string owner = 12;</code>
-     * @return The owner.
-     */
-    java.lang.String getOwner();
-    /**
-     * <code>string owner = 12;</code>
-     * @return The bytes for owner.
-     */
-    com.google.protobuf.ByteString
-        getOwnerBytes();
-
-    /**
-     * <code>string asset = 13;</code>
-     * @return The asset.
-     */
-    java.lang.String getAsset();
-    /**
-     * <code>string asset = 13;</code>
-     * @return The bytes for asset.
-     */
-    com.google.protobuf.ByteString
-        getAssetBytes();
-
-    /**
-     * <code>string instance_type = 14;</code>
-     * @return The instanceType.
-     */
-    java.lang.String getInstanceType();
-    /**
-     * <code>string instance_type = 14;</code>
-     * @return The bytes for instanceType.
-     */
-    com.google.protobuf.ByteString
-        getInstanceTypeBytes();
-
-    /**
-     * <code>string pricing_model = 15;</code>
-     * @return The pricingModel.
-     */
-    java.lang.String getPricingModel();
-    /**
-     * <code>string pricing_model = 15;</code>
-     * @return The bytes for pricingModel.
-     */
-    com.google.protobuf.ByteString
-        getPricingModelBytes();
+    java.lang.String getLabelsOrThrow(
+        java.lang.String key);
 
     /**
      * <pre>
-     *int64 proc_time = 17; // processing time
+     * data ingestion time
      * </pre>
      *
-     * <code>string cluster = 16;</code>
-     * @return The cluster.
+     * <code>int64 ingestion_time = 8;</code>
+     * @return The ingestionTime.
      */
-    java.lang.String getCluster();
-    /**
-     * <pre>
-     *int64 proc_time = 17; // processing time
-     * </pre>
-     *
-     * <code>string cluster = 16;</code>
-     * @return The bytes for cluster.
-     */
-    com.google.protobuf.ByteString
-        getClusterBytes();
+    long getIngestionTime();
   }
   /**
+   * <pre>
+   * The PodMessageRaw containing message sending to API Gateway =&gt; Kinesis DS =&gt; Kinesis FH =&gt; S3
+   * </pre>
+   *
    * Protobuf type {@code podmsgraw.PodMessageRaw}
    */
   public  static final class PodMessageRaw extends
@@ -194,12 +134,6 @@ public final class MazuRecordRaw {
     }
     private PodMessageRaw() {
       podName_ = "";
-      jobName_ = "";
-      owner_ = "";
-      asset_ = "";
-      instanceType_ = "";
-      pricingModel_ = "";
-      cluster_ = "";
     }
 
     @java.lang.Override
@@ -222,6 +156,7 @@ public final class MazuRecordRaw {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -238,85 +173,47 @@ public final class MazuRecordRaw {
               podName_ = s;
               break;
             }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              jobName_ = s;
-              break;
-            }
-            case 24: {
+            case 16: {
 
               startTime_ = input.readInt64();
               break;
             }
-            case 32: {
+            case 24: {
 
               endTime_ = input.readInt64();
               break;
             }
-            case 40: {
+            case 32: {
 
               cpuRequested_ = input.readInt64();
               break;
             }
-            case 48: {
+            case 40: {
 
               gpuRequested_ = input.readInt64();
               break;
             }
-            case 56: {
+            case 48: {
 
               memoryRequested_ = input.readInt64();
               break;
             }
-            case 65: {
-
-              cpuCost_ = input.readDouble();
+            case 58: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                labels_ = com.google.protobuf.MapField.newMapField(
+                    LabelsDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000001;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              labels_.getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
               break;
             }
-            case 73: {
+            case 64: {
 
-              gpuCost_ = input.readDouble();
-              break;
-            }
-            case 81: {
-
-              memoryCost_ = input.readDouble();
-              break;
-            }
-            case 89: {
-
-              multiplier_ = input.readDouble();
-              break;
-            }
-            case 98: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              owner_ = s;
-              break;
-            }
-            case 106: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              asset_ = s;
-              break;
-            }
-            case 114: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              instanceType_ = s;
-              break;
-            }
-            case 122: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              pricingModel_ = s;
-              break;
-            }
-            case 130: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              cluster_ = s;
+              ingestionTime_ = input.readInt64();
               break;
             }
             default: {
@@ -343,6 +240,18 @@ public final class MazuRecordRaw {
       return podmsgraw.MazuRecordRaw.internal_static_podmsgraw_PodMessageRaw_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 7:
+          return internalGetLabels();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -387,334 +296,156 @@ public final class MazuRecordRaw {
       }
     }
 
-    public static final int JOB_NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object jobName_;
-    /**
-     * <code>string job_name = 2;</code>
-     * @return The jobName.
-     */
-    public java.lang.String getJobName() {
-      java.lang.Object ref = jobName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        jobName_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string job_name = 2;</code>
-     * @return The bytes for jobName.
-     */
-    public com.google.protobuf.ByteString
-        getJobNameBytes() {
-      java.lang.Object ref = jobName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        jobName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int START_TIME_FIELD_NUMBER = 3;
+    public static final int START_TIME_FIELD_NUMBER = 2;
     private long startTime_;
     /**
-     * <code>int64 start_time = 3;</code>
+     * <code>int64 start_time = 2;</code>
      * @return The startTime.
      */
     public long getStartTime() {
       return startTime_;
     }
 
-    public static final int END_TIME_FIELD_NUMBER = 4;
+    public static final int END_TIME_FIELD_NUMBER = 3;
     private long endTime_;
     /**
-     * <code>int64 end_time = 4;</code>
+     * <code>int64 end_time = 3;</code>
      * @return The endTime.
      */
     public long getEndTime() {
       return endTime_;
     }
 
-    public static final int CPU_REQUESTED_FIELD_NUMBER = 5;
+    public static final int CPU_REQUESTED_FIELD_NUMBER = 4;
     private long cpuRequested_;
     /**
      * <pre>
-     * requested resources
+     * CPU - MilliValue
      * </pre>
      *
-     * <code>int64 cpu_requested = 5 [(.gogoproto.jsontag) = "cpu_requested"];</code>
+     * <code>int64 cpu_requested = 4;</code>
      * @return The cpuRequested.
      */
     public long getCpuRequested() {
       return cpuRequested_;
     }
 
-    public static final int GPU_REQUESTED_FIELD_NUMBER = 6;
+    public static final int GPU_REQUESTED_FIELD_NUMBER = 5;
     private long gpuRequested_;
     /**
      * <pre>
      * GPU - MilliValue
      * </pre>
      *
-     * <code>int64 gpu_requested = 6 [(.gogoproto.jsontag) = "gpu_requested"];</code>
+     * <code>int64 gpu_requested = 5;</code>
      * @return The gpuRequested.
      */
     public long getGpuRequested() {
       return gpuRequested_;
     }
 
-    public static final int MEMORY_REQUESTED_FIELD_NUMBER = 7;
+    public static final int MEMORY_REQUESTED_FIELD_NUMBER = 6;
     private long memoryRequested_;
     /**
      * <pre>
      * Memory - Value
      * </pre>
      *
-     * <code>int64 memory_requested = 7 [(.gogoproto.jsontag) = "memory_requested"];</code>
+     * <code>int64 memory_requested = 6;</code>
      * @return The memoryRequested.
      */
     public long getMemoryRequested() {
       return memoryRequested_;
     }
 
-    public static final int CPU_COST_FIELD_NUMBER = 8;
-    private double cpuCost_;
+    public static final int LABELS_FIELD_NUMBER = 7;
+    private static final class LabelsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  podmsgraw.MazuRecordRaw.internal_static_podmsgraw_PodMessageRaw_LabelsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> labels_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetLabels() {
+      if (labels_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            LabelsDefaultEntryHolder.defaultEntry);
+      }
+      return labels_;
+    }
+
+    public int getLabelsCount() {
+      return internalGetLabels().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 7;</code>
+     */
+
+    public boolean containsLabels(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetLabels().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+      return getLabelsMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 7;</code>
+     */
+
+    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+      return internalGetLabels().getMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 7;</code>
+     */
+
+    public java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 7;</code>
+     */
+
+    public java.lang.String getLabelsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public static final int INGESTION_TIME_FIELD_NUMBER = 8;
+    private long ingestionTime_;
     /**
      * <pre>
-     * derived values
+     * data ingestion time
      * </pre>
      *
-     * <code>double cpu_cost = 8 [(.gogoproto.jsontag) = "cpu_cost"];</code>
-     * @return The cpuCost.
+     * <code>int64 ingestion_time = 8;</code>
+     * @return The ingestionTime.
      */
-    public double getCpuCost() {
-      return cpuCost_;
-    }
-
-    public static final int GPU_COST_FIELD_NUMBER = 9;
-    private double gpuCost_;
-    /**
-     * <code>double gpu_cost = 9 [(.gogoproto.jsontag) = "gpu_cost"];</code>
-     * @return The gpuCost.
-     */
-    public double getGpuCost() {
-      return gpuCost_;
-    }
-
-    public static final int MEMORY_COST_FIELD_NUMBER = 10;
-    private double memoryCost_;
-    /**
-     * <code>double memory_cost = 10 [(.gogoproto.jsontag) = "memory_cost"];</code>
-     * @return The memoryCost.
-     */
-    public double getMemoryCost() {
-      return memoryCost_;
-    }
-
-    public static final int MULTIPLIER_FIELD_NUMBER = 11;
-    private double multiplier_;
-    /**
-     * <code>double multiplier = 11 [(.gogoproto.jsontag) = "multiplier"];</code>
-     * @return The multiplier.
-     */
-    public double getMultiplier() {
-      return multiplier_;
-    }
-
-    public static final int OWNER_FIELD_NUMBER = 12;
-    private volatile java.lang.Object owner_;
-    /**
-     * <code>string owner = 12;</code>
-     * @return The owner.
-     */
-    public java.lang.String getOwner() {
-      java.lang.Object ref = owner_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        owner_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string owner = 12;</code>
-     * @return The bytes for owner.
-     */
-    public com.google.protobuf.ByteString
-        getOwnerBytes() {
-      java.lang.Object ref = owner_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        owner_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int ASSET_FIELD_NUMBER = 13;
-    private volatile java.lang.Object asset_;
-    /**
-     * <code>string asset = 13;</code>
-     * @return The asset.
-     */
-    public java.lang.String getAsset() {
-      java.lang.Object ref = asset_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        asset_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string asset = 13;</code>
-     * @return The bytes for asset.
-     */
-    public com.google.protobuf.ByteString
-        getAssetBytes() {
-      java.lang.Object ref = asset_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        asset_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int INSTANCE_TYPE_FIELD_NUMBER = 14;
-    private volatile java.lang.Object instanceType_;
-    /**
-     * <code>string instance_type = 14;</code>
-     * @return The instanceType.
-     */
-    public java.lang.String getInstanceType() {
-      java.lang.Object ref = instanceType_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        instanceType_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string instance_type = 14;</code>
-     * @return The bytes for instanceType.
-     */
-    public com.google.protobuf.ByteString
-        getInstanceTypeBytes() {
-      java.lang.Object ref = instanceType_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        instanceType_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int PRICING_MODEL_FIELD_NUMBER = 15;
-    private volatile java.lang.Object pricingModel_;
-    /**
-     * <code>string pricing_model = 15;</code>
-     * @return The pricingModel.
-     */
-    public java.lang.String getPricingModel() {
-      java.lang.Object ref = pricingModel_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        pricingModel_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string pricing_model = 15;</code>
-     * @return The bytes for pricingModel.
-     */
-    public com.google.protobuf.ByteString
-        getPricingModelBytes() {
-      java.lang.Object ref = pricingModel_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        pricingModel_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CLUSTER_FIELD_NUMBER = 16;
-    private volatile java.lang.Object cluster_;
-    /**
-     * <pre>
-     *int64 proc_time = 17; // processing time
-     * </pre>
-     *
-     * <code>string cluster = 16;</code>
-     * @return The cluster.
-     */
-    public java.lang.String getCluster() {
-      java.lang.Object ref = cluster_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        cluster_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     *int64 proc_time = 17; // processing time
-     * </pre>
-     *
-     * <code>string cluster = 16;</code>
-     * @return The bytes for cluster.
-     */
-    public com.google.protobuf.ByteString
-        getClusterBytes() {
-      java.lang.Object ref = cluster_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        cluster_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getIngestionTime() {
+      return ingestionTime_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -734,50 +465,29 @@ public final class MazuRecordRaw {
       if (!getPodNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, podName_);
       }
-      if (!getJobNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, jobName_);
-      }
       if (startTime_ != 0L) {
-        output.writeInt64(3, startTime_);
+        output.writeInt64(2, startTime_);
       }
       if (endTime_ != 0L) {
-        output.writeInt64(4, endTime_);
+        output.writeInt64(3, endTime_);
       }
       if (cpuRequested_ != 0L) {
-        output.writeInt64(5, cpuRequested_);
+        output.writeInt64(4, cpuRequested_);
       }
       if (gpuRequested_ != 0L) {
-        output.writeInt64(6, gpuRequested_);
+        output.writeInt64(5, gpuRequested_);
       }
       if (memoryRequested_ != 0L) {
-        output.writeInt64(7, memoryRequested_);
+        output.writeInt64(6, memoryRequested_);
       }
-      if (cpuCost_ != 0D) {
-        output.writeDouble(8, cpuCost_);
-      }
-      if (gpuCost_ != 0D) {
-        output.writeDouble(9, gpuCost_);
-      }
-      if (memoryCost_ != 0D) {
-        output.writeDouble(10, memoryCost_);
-      }
-      if (multiplier_ != 0D) {
-        output.writeDouble(11, multiplier_);
-      }
-      if (!getOwnerBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 12, owner_);
-      }
-      if (!getAssetBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 13, asset_);
-      }
-      if (!getInstanceTypeBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 14, instanceType_);
-      }
-      if (!getPricingModelBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 15, pricingModel_);
-      }
-      if (!getClusterBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 16, cluster_);
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetLabels(),
+          LabelsDefaultEntryHolder.defaultEntry,
+          7);
+      if (ingestionTime_ != 0L) {
+        output.writeInt64(8, ingestionTime_);
       }
       unknownFields.writeTo(output);
     }
@@ -791,59 +501,39 @@ public final class MazuRecordRaw {
       if (!getPodNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, podName_);
       }
-      if (!getJobNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, jobName_);
-      }
       if (startTime_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, startTime_);
+          .computeInt64Size(2, startTime_);
       }
       if (endTime_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(4, endTime_);
+          .computeInt64Size(3, endTime_);
       }
       if (cpuRequested_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(5, cpuRequested_);
+          .computeInt64Size(4, cpuRequested_);
       }
       if (gpuRequested_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(6, gpuRequested_);
+          .computeInt64Size(5, gpuRequested_);
       }
       if (memoryRequested_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(7, memoryRequested_);
+          .computeInt64Size(6, memoryRequested_);
       }
-      if (cpuCost_ != 0D) {
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetLabels().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
         size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(8, cpuCost_);
+            .computeMessageSize(7, labels__);
       }
-      if (gpuCost_ != 0D) {
+      if (ingestionTime_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(9, gpuCost_);
-      }
-      if (memoryCost_ != 0D) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(10, memoryCost_);
-      }
-      if (multiplier_ != 0D) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(11, multiplier_);
-      }
-      if (!getOwnerBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, owner_);
-      }
-      if (!getAssetBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, asset_);
-      }
-      if (!getInstanceTypeBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, instanceType_);
-      }
-      if (!getPricingModelBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, pricingModel_);
-      }
-      if (!getClusterBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, cluster_);
+          .computeInt64Size(8, ingestionTime_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -862,8 +552,6 @@ public final class MazuRecordRaw {
 
       if (!getPodName()
           .equals(other.getPodName())) return false;
-      if (!getJobName()
-          .equals(other.getJobName())) return false;
       if (getStartTime()
           != other.getStartTime()) return false;
       if (getEndTime()
@@ -874,28 +562,10 @@ public final class MazuRecordRaw {
           != other.getGpuRequested()) return false;
       if (getMemoryRequested()
           != other.getMemoryRequested()) return false;
-      if (java.lang.Double.doubleToLongBits(getCpuCost())
-          != java.lang.Double.doubleToLongBits(
-              other.getCpuCost())) return false;
-      if (java.lang.Double.doubleToLongBits(getGpuCost())
-          != java.lang.Double.doubleToLongBits(
-              other.getGpuCost())) return false;
-      if (java.lang.Double.doubleToLongBits(getMemoryCost())
-          != java.lang.Double.doubleToLongBits(
-              other.getMemoryCost())) return false;
-      if (java.lang.Double.doubleToLongBits(getMultiplier())
-          != java.lang.Double.doubleToLongBits(
-              other.getMultiplier())) return false;
-      if (!getOwner()
-          .equals(other.getOwner())) return false;
-      if (!getAsset()
-          .equals(other.getAsset())) return false;
-      if (!getInstanceType()
-          .equals(other.getInstanceType())) return false;
-      if (!getPricingModel()
-          .equals(other.getPricingModel())) return false;
-      if (!getCluster()
-          .equals(other.getCluster())) return false;
+      if (!internalGetLabels().equals(
+          other.internalGetLabels())) return false;
+      if (getIngestionTime()
+          != other.getIngestionTime()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -909,8 +579,6 @@ public final class MazuRecordRaw {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + POD_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getPodName().hashCode();
-      hash = (37 * hash) + JOB_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getJobName().hashCode();
       hash = (37 * hash) + START_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getStartTime());
@@ -926,28 +594,13 @@ public final class MazuRecordRaw {
       hash = (37 * hash) + MEMORY_REQUESTED_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getMemoryRequested());
-      hash = (37 * hash) + CPU_COST_FIELD_NUMBER;
+      if (!internalGetLabels().getMap().isEmpty()) {
+        hash = (37 * hash) + LABELS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetLabels().hashCode();
+      }
+      hash = (37 * hash) + INGESTION_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          java.lang.Double.doubleToLongBits(getCpuCost()));
-      hash = (37 * hash) + GPU_COST_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          java.lang.Double.doubleToLongBits(getGpuCost()));
-      hash = (37 * hash) + MEMORY_COST_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          java.lang.Double.doubleToLongBits(getMemoryCost()));
-      hash = (37 * hash) + MULTIPLIER_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          java.lang.Double.doubleToLongBits(getMultiplier()));
-      hash = (37 * hash) + OWNER_FIELD_NUMBER;
-      hash = (53 * hash) + getOwner().hashCode();
-      hash = (37 * hash) + ASSET_FIELD_NUMBER;
-      hash = (53 * hash) + getAsset().hashCode();
-      hash = (37 * hash) + INSTANCE_TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + getInstanceType().hashCode();
-      hash = (37 * hash) + PRICING_MODEL_FIELD_NUMBER;
-      hash = (53 * hash) + getPricingModel().hashCode();
-      hash = (37 * hash) + CLUSTER_FIELD_NUMBER;
-      hash = (53 * hash) + getCluster().hashCode();
+          getIngestionTime());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1044,6 +697,10 @@ public final class MazuRecordRaw {
       return builder;
     }
     /**
+     * <pre>
+     * The PodMessageRaw containing message sending to API Gateway =&gt; Kinesis DS =&gt; Kinesis FH =&gt; S3
+     * </pre>
+     *
      * Protobuf type {@code podmsgraw.PodMessageRaw}
      */
     public static final class Builder extends
@@ -1055,6 +712,28 @@ public final class MazuRecordRaw {
         return podmsgraw.MazuRecordRaw.internal_static_podmsgraw_PodMessageRaw_descriptor;
       }
 
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 7:
+            return internalGetLabels();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 7:
+            return internalGetMutableLabels();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -1083,8 +762,6 @@ public final class MazuRecordRaw {
         super.clear();
         podName_ = "";
 
-        jobName_ = "";
-
         startTime_ = 0L;
 
         endTime_ = 0L;
@@ -1095,23 +772,8 @@ public final class MazuRecordRaw {
 
         memoryRequested_ = 0L;
 
-        cpuCost_ = 0D;
-
-        gpuCost_ = 0D;
-
-        memoryCost_ = 0D;
-
-        multiplier_ = 0D;
-
-        owner_ = "";
-
-        asset_ = "";
-
-        instanceType_ = "";
-
-        pricingModel_ = "";
-
-        cluster_ = "";
+        internalGetMutableLabels().clear();
+        ingestionTime_ = 0L;
 
         return this;
       }
@@ -1139,22 +801,16 @@ public final class MazuRecordRaw {
       @java.lang.Override
       public podmsgraw.MazuRecordRaw.PodMessageRaw buildPartial() {
         podmsgraw.MazuRecordRaw.PodMessageRaw result = new podmsgraw.MazuRecordRaw.PodMessageRaw(this);
+        int from_bitField0_ = bitField0_;
         result.podName_ = podName_;
-        result.jobName_ = jobName_;
         result.startTime_ = startTime_;
         result.endTime_ = endTime_;
         result.cpuRequested_ = cpuRequested_;
         result.gpuRequested_ = gpuRequested_;
         result.memoryRequested_ = memoryRequested_;
-        result.cpuCost_ = cpuCost_;
-        result.gpuCost_ = gpuCost_;
-        result.memoryCost_ = memoryCost_;
-        result.multiplier_ = multiplier_;
-        result.owner_ = owner_;
-        result.asset_ = asset_;
-        result.instanceType_ = instanceType_;
-        result.pricingModel_ = pricingModel_;
-        result.cluster_ = cluster_;
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+        result.ingestionTime_ = ingestionTime_;
         onBuilt();
         return result;
       }
@@ -1207,10 +863,6 @@ public final class MazuRecordRaw {
           podName_ = other.podName_;
           onChanged();
         }
-        if (!other.getJobName().isEmpty()) {
-          jobName_ = other.jobName_;
-          onChanged();
-        }
         if (other.getStartTime() != 0L) {
           setStartTime(other.getStartTime());
         }
@@ -1226,37 +878,10 @@ public final class MazuRecordRaw {
         if (other.getMemoryRequested() != 0L) {
           setMemoryRequested(other.getMemoryRequested());
         }
-        if (other.getCpuCost() != 0D) {
-          setCpuCost(other.getCpuCost());
-        }
-        if (other.getGpuCost() != 0D) {
-          setGpuCost(other.getGpuCost());
-        }
-        if (other.getMemoryCost() != 0D) {
-          setMemoryCost(other.getMemoryCost());
-        }
-        if (other.getMultiplier() != 0D) {
-          setMultiplier(other.getMultiplier());
-        }
-        if (!other.getOwner().isEmpty()) {
-          owner_ = other.owner_;
-          onChanged();
-        }
-        if (!other.getAsset().isEmpty()) {
-          asset_ = other.asset_;
-          onChanged();
-        }
-        if (!other.getInstanceType().isEmpty()) {
-          instanceType_ = other.instanceType_;
-          onChanged();
-        }
-        if (!other.getPricingModel().isEmpty()) {
-          pricingModel_ = other.pricingModel_;
-          onChanged();
-        }
-        if (!other.getCluster().isEmpty()) {
-          cluster_ = other.cluster_;
-          onChanged();
+        internalGetMutableLabels().mergeFrom(
+            other.internalGetLabels());
+        if (other.getIngestionTime() != 0L) {
+          setIngestionTime(other.getIngestionTime());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1286,6 +911,7 @@ public final class MazuRecordRaw {
         }
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object podName_ = "";
       /**
@@ -1363,92 +989,16 @@ public final class MazuRecordRaw {
         return this;
       }
 
-      private java.lang.Object jobName_ = "";
-      /**
-       * <code>string job_name = 2;</code>
-       * @return The jobName.
-       */
-      public java.lang.String getJobName() {
-        java.lang.Object ref = jobName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          jobName_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string job_name = 2;</code>
-       * @return The bytes for jobName.
-       */
-      public com.google.protobuf.ByteString
-          getJobNameBytes() {
-        java.lang.Object ref = jobName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          jobName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string job_name = 2;</code>
-       * @param value The jobName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setJobName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        jobName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string job_name = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearJobName() {
-        
-        jobName_ = getDefaultInstance().getJobName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string job_name = 2;</code>
-       * @param value The bytes for jobName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setJobNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        jobName_ = value;
-        onChanged();
-        return this;
-      }
-
       private long startTime_ ;
       /**
-       * <code>int64 start_time = 3;</code>
+       * <code>int64 start_time = 2;</code>
        * @return The startTime.
        */
       public long getStartTime() {
         return startTime_;
       }
       /**
-       * <code>int64 start_time = 3;</code>
+       * <code>int64 start_time = 2;</code>
        * @param value The startTime to set.
        * @return This builder for chaining.
        */
@@ -1459,7 +1009,7 @@ public final class MazuRecordRaw {
         return this;
       }
       /**
-       * <code>int64 start_time = 3;</code>
+       * <code>int64 start_time = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearStartTime() {
@@ -1471,14 +1021,14 @@ public final class MazuRecordRaw {
 
       private long endTime_ ;
       /**
-       * <code>int64 end_time = 4;</code>
+       * <code>int64 end_time = 3;</code>
        * @return The endTime.
        */
       public long getEndTime() {
         return endTime_;
       }
       /**
-       * <code>int64 end_time = 4;</code>
+       * <code>int64 end_time = 3;</code>
        * @param value The endTime to set.
        * @return This builder for chaining.
        */
@@ -1489,7 +1039,7 @@ public final class MazuRecordRaw {
         return this;
       }
       /**
-       * <code>int64 end_time = 4;</code>
+       * <code>int64 end_time = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearEndTime() {
@@ -1502,10 +1052,10 @@ public final class MazuRecordRaw {
       private long cpuRequested_ ;
       /**
        * <pre>
-       * requested resources
+       * CPU - MilliValue
        * </pre>
        *
-       * <code>int64 cpu_requested = 5 [(.gogoproto.jsontag) = "cpu_requested"];</code>
+       * <code>int64 cpu_requested = 4;</code>
        * @return The cpuRequested.
        */
       public long getCpuRequested() {
@@ -1513,10 +1063,10 @@ public final class MazuRecordRaw {
       }
       /**
        * <pre>
-       * requested resources
+       * CPU - MilliValue
        * </pre>
        *
-       * <code>int64 cpu_requested = 5 [(.gogoproto.jsontag) = "cpu_requested"];</code>
+       * <code>int64 cpu_requested = 4;</code>
        * @param value The cpuRequested to set.
        * @return This builder for chaining.
        */
@@ -1528,10 +1078,10 @@ public final class MazuRecordRaw {
       }
       /**
        * <pre>
-       * requested resources
+       * CPU - MilliValue
        * </pre>
        *
-       * <code>int64 cpu_requested = 5 [(.gogoproto.jsontag) = "cpu_requested"];</code>
+       * <code>int64 cpu_requested = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearCpuRequested() {
@@ -1547,7 +1097,7 @@ public final class MazuRecordRaw {
        * GPU - MilliValue
        * </pre>
        *
-       * <code>int64 gpu_requested = 6 [(.gogoproto.jsontag) = "gpu_requested"];</code>
+       * <code>int64 gpu_requested = 5;</code>
        * @return The gpuRequested.
        */
       public long getGpuRequested() {
@@ -1558,7 +1108,7 @@ public final class MazuRecordRaw {
        * GPU - MilliValue
        * </pre>
        *
-       * <code>int64 gpu_requested = 6 [(.gogoproto.jsontag) = "gpu_requested"];</code>
+       * <code>int64 gpu_requested = 5;</code>
        * @param value The gpuRequested to set.
        * @return This builder for chaining.
        */
@@ -1573,7 +1123,7 @@ public final class MazuRecordRaw {
        * GPU - MilliValue
        * </pre>
        *
-       * <code>int64 gpu_requested = 6 [(.gogoproto.jsontag) = "gpu_requested"];</code>
+       * <code>int64 gpu_requested = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearGpuRequested() {
@@ -1589,7 +1139,7 @@ public final class MazuRecordRaw {
        * Memory - Value
        * </pre>
        *
-       * <code>int64 memory_requested = 7 [(.gogoproto.jsontag) = "memory_requested"];</code>
+       * <code>int64 memory_requested = 6;</code>
        * @return The memoryRequested.
        */
       public long getMemoryRequested() {
@@ -1600,7 +1150,7 @@ public final class MazuRecordRaw {
        * Memory - Value
        * </pre>
        *
-       * <code>int64 memory_requested = 7 [(.gogoproto.jsontag) = "memory_requested"];</code>
+       * <code>int64 memory_requested = 6;</code>
        * @param value The memoryRequested to set.
        * @return This builder for chaining.
        */
@@ -1615,7 +1165,7 @@ public final class MazuRecordRaw {
        * Memory - Value
        * </pre>
        *
-       * <code>int64 memory_requested = 7 [(.gogoproto.jsontag) = "memory_requested"];</code>
+       * <code>int64 memory_requested = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearMemoryRequested() {
@@ -1625,534 +1175,167 @@ public final class MazuRecordRaw {
         return this;
       }
 
-      private double cpuCost_ ;
-      /**
-       * <pre>
-       * derived values
-       * </pre>
-       *
-       * <code>double cpu_cost = 8 [(.gogoproto.jsontag) = "cpu_cost"];</code>
-       * @return The cpuCost.
-       */
-      public double getCpuCost() {
-        return cpuCost_;
-      }
-      /**
-       * <pre>
-       * derived values
-       * </pre>
-       *
-       * <code>double cpu_cost = 8 [(.gogoproto.jsontag) = "cpu_cost"];</code>
-       * @param value The cpuCost to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCpuCost(double value) {
-        
-        cpuCost_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * derived values
-       * </pre>
-       *
-       * <code>double cpu_cost = 8 [(.gogoproto.jsontag) = "cpu_cost"];</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCpuCost() {
-        
-        cpuCost_ = 0D;
-        onChanged();
-        return this;
-      }
-
-      private double gpuCost_ ;
-      /**
-       * <code>double gpu_cost = 9 [(.gogoproto.jsontag) = "gpu_cost"];</code>
-       * @return The gpuCost.
-       */
-      public double getGpuCost() {
-        return gpuCost_;
-      }
-      /**
-       * <code>double gpu_cost = 9 [(.gogoproto.jsontag) = "gpu_cost"];</code>
-       * @param value The gpuCost to set.
-       * @return This builder for chaining.
-       */
-      public Builder setGpuCost(double value) {
-        
-        gpuCost_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>double gpu_cost = 9 [(.gogoproto.jsontag) = "gpu_cost"];</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearGpuCost() {
-        
-        gpuCost_ = 0D;
-        onChanged();
-        return this;
-      }
-
-      private double memoryCost_ ;
-      /**
-       * <code>double memory_cost = 10 [(.gogoproto.jsontag) = "memory_cost"];</code>
-       * @return The memoryCost.
-       */
-      public double getMemoryCost() {
-        return memoryCost_;
-      }
-      /**
-       * <code>double memory_cost = 10 [(.gogoproto.jsontag) = "memory_cost"];</code>
-       * @param value The memoryCost to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMemoryCost(double value) {
-        
-        memoryCost_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>double memory_cost = 10 [(.gogoproto.jsontag) = "memory_cost"];</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearMemoryCost() {
-        
-        memoryCost_ = 0D;
-        onChanged();
-        return this;
-      }
-
-      private double multiplier_ ;
-      /**
-       * <code>double multiplier = 11 [(.gogoproto.jsontag) = "multiplier"];</code>
-       * @return The multiplier.
-       */
-      public double getMultiplier() {
-        return multiplier_;
-      }
-      /**
-       * <code>double multiplier = 11 [(.gogoproto.jsontag) = "multiplier"];</code>
-       * @param value The multiplier to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMultiplier(double value) {
-        
-        multiplier_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>double multiplier = 11 [(.gogoproto.jsontag) = "multiplier"];</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearMultiplier() {
-        
-        multiplier_ = 0D;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object owner_ = "";
-      /**
-       * <code>string owner = 12;</code>
-       * @return The owner.
-       */
-      public java.lang.String getOwner() {
-        java.lang.Object ref = owner_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          owner_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> labels_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetLabels() {
+        if (labels_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
         }
+        return labels_;
       }
-      /**
-       * <code>string owner = 12;</code>
-       * @return The bytes for owner.
-       */
-      public com.google.protobuf.ByteString
-          getOwnerBytes() {
-        java.lang.Object ref = owner_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          owner_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableLabels() {
+        onChanged();;
+        if (labels_ == null) {
+          labels_ = com.google.protobuf.MapField.newMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
         }
+        if (!labels_.isMutable()) {
+          labels_ = labels_.copy();
+        }
+        return labels_;
+      }
+
+      public int getLabelsCount() {
+        return internalGetLabels().getMap().size();
       }
       /**
-       * <code>string owner = 12;</code>
-       * @param value The owner to set.
-       * @return This builder for chaining.
+       * <code>map&lt;string, string&gt; labels = 7;</code>
        */
-      public Builder setOwner(
+
+      public boolean containsLabels(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetLabels().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getLabelsMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+        return getLabelsMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 7;</code>
+       */
+
+      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+        return internalGetLabels().getMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 7;</code>
+       */
+
+      public java.lang.String getLabelsOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 7;</code>
+       */
+
+      public java.lang.String getLabelsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearLabels() {
+        internalGetMutableLabels().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 7;</code>
+       */
+
+      public Builder removeLabels(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLabels().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableLabels() {
+        return internalGetMutableLabels().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 7;</code>
+       */
+      public Builder putLabels(
+          java.lang.String key,
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        owner_ = value;
-        onChanged();
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLabels().getMutableMap()
+            .put(key, value);
         return this;
       }
       /**
-       * <code>string owner = 12;</code>
-       * @return This builder for chaining.
+       * <code>map&lt;string, string&gt; labels = 7;</code>
        */
-      public Builder clearOwner() {
-        
-        owner_ = getDefaultInstance().getOwner();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string owner = 12;</code>
-       * @param value The bytes for owner to set.
-       * @return This builder for chaining.
-       */
-      public Builder setOwnerBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        owner_ = value;
-        onChanged();
+
+      public Builder putAllLabels(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableLabels().getMutableMap()
+            .putAll(values);
         return this;
       }
 
-      private java.lang.Object asset_ = "";
-      /**
-       * <code>string asset = 13;</code>
-       * @return The asset.
-       */
-      public java.lang.String getAsset() {
-        java.lang.Object ref = asset_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          asset_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string asset = 13;</code>
-       * @return The bytes for asset.
-       */
-      public com.google.protobuf.ByteString
-          getAssetBytes() {
-        java.lang.Object ref = asset_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          asset_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string asset = 13;</code>
-       * @param value The asset to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAsset(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        asset_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string asset = 13;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearAsset() {
-        
-        asset_ = getDefaultInstance().getAsset();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string asset = 13;</code>
-       * @param value The bytes for asset to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAssetBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        asset_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object instanceType_ = "";
-      /**
-       * <code>string instance_type = 14;</code>
-       * @return The instanceType.
-       */
-      public java.lang.String getInstanceType() {
-        java.lang.Object ref = instanceType_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          instanceType_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string instance_type = 14;</code>
-       * @return The bytes for instanceType.
-       */
-      public com.google.protobuf.ByteString
-          getInstanceTypeBytes() {
-        java.lang.Object ref = instanceType_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          instanceType_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string instance_type = 14;</code>
-       * @param value The instanceType to set.
-       * @return This builder for chaining.
-       */
-      public Builder setInstanceType(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        instanceType_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string instance_type = 14;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearInstanceType() {
-        
-        instanceType_ = getDefaultInstance().getInstanceType();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string instance_type = 14;</code>
-       * @param value The bytes for instanceType to set.
-       * @return This builder for chaining.
-       */
-      public Builder setInstanceTypeBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        instanceType_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object pricingModel_ = "";
-      /**
-       * <code>string pricing_model = 15;</code>
-       * @return The pricingModel.
-       */
-      public java.lang.String getPricingModel() {
-        java.lang.Object ref = pricingModel_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          pricingModel_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string pricing_model = 15;</code>
-       * @return The bytes for pricingModel.
-       */
-      public com.google.protobuf.ByteString
-          getPricingModelBytes() {
-        java.lang.Object ref = pricingModel_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          pricingModel_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string pricing_model = 15;</code>
-       * @param value The pricingModel to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPricingModel(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        pricingModel_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string pricing_model = 15;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearPricingModel() {
-        
-        pricingModel_ = getDefaultInstance().getPricingModel();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string pricing_model = 15;</code>
-       * @param value The bytes for pricingModel to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPricingModelBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        pricingModel_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object cluster_ = "";
+      private long ingestionTime_ ;
       /**
        * <pre>
-       *int64 proc_time = 17; // processing time
+       * data ingestion time
        * </pre>
        *
-       * <code>string cluster = 16;</code>
-       * @return The cluster.
+       * <code>int64 ingestion_time = 8;</code>
+       * @return The ingestionTime.
        */
-      public java.lang.String getCluster() {
-        java.lang.Object ref = cluster_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          cluster_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getIngestionTime() {
+        return ingestionTime_;
       }
       /**
        * <pre>
-       *int64 proc_time = 17; // processing time
+       * data ingestion time
        * </pre>
        *
-       * <code>string cluster = 16;</code>
-       * @return The bytes for cluster.
-       */
-      public com.google.protobuf.ByteString
-          getClusterBytes() {
-        java.lang.Object ref = cluster_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          cluster_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       *int64 proc_time = 17; // processing time
-       * </pre>
-       *
-       * <code>string cluster = 16;</code>
-       * @param value The cluster to set.
+       * <code>int64 ingestion_time = 8;</code>
+       * @param value The ingestionTime to set.
        * @return This builder for chaining.
        */
-      public Builder setCluster(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        cluster_ = value;
+      public Builder setIngestionTime(long value) {
+        
+        ingestionTime_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       *int64 proc_time = 17; // processing time
+       * data ingestion time
        * </pre>
        *
-       * <code>string cluster = 16;</code>
+       * <code>int64 ingestion_time = 8;</code>
        * @return This builder for chaining.
        */
-      public Builder clearCluster() {
+      public Builder clearIngestionTime() {
         
-        cluster_ = getDefaultInstance().getCluster();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *int64 proc_time = 17; // processing time
-       * </pre>
-       *
-       * <code>string cluster = 16;</code>
-       * @param value The bytes for cluster to set.
-       * @return This builder for chaining.
-       */
-      public Builder setClusterBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        cluster_ = value;
+        ingestionTime_ = 0L;
         onChanged();
         return this;
       }
@@ -2214,6 +1397,11 @@ public final class MazuRecordRaw {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_podmsgraw_PodMessageRaw_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_podmsgraw_PodMessageRaw_LabelsEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_podmsgraw_PodMessageRaw_LabelsEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2225,19 +1413,15 @@ public final class MazuRecordRaw {
     java.lang.String[] descriptorData = {
       "\n.resources/mazu-kubernetes-podwatcher-r" +
       "aw.proto\022\tpodmsgraw\032-github.com/gogo/pro" +
-      "tobuf/gogoproto/gogo.proto\"\304\003\n\rPodMessag" +
-      "eRaw\022\020\n\010pod_name\030\001 \001(\t\022\020\n\010job_name\030\002 \001(\t" +
-      "\022\022\n\nstart_time\030\003 \001(\003\022\020\n\010end_time\030\004 \001(\003\022(" +
-      "\n\rcpu_requested\030\005 \001(\003B\021\352\336\037\rcpu_requested" +
-      "\022(\n\rgpu_requested\030\006 \001(\003B\021\352\336\037\rgpu_request" +
-      "ed\022.\n\020memory_requested\030\007 \001(\003B\024\352\336\037\020memory" +
-      "_requested\022\036\n\010cpu_cost\030\010 \001(\001B\014\352\336\037\010cpu_co" +
-      "st\022\036\n\010gpu_cost\030\t \001(\001B\014\352\336\037\010gpu_cost\022$\n\013me" +
-      "mory_cost\030\n \001(\001B\017\352\336\037\013memory_cost\022\"\n\nmult" +
-      "iplier\030\013 \001(\001B\016\352\336\037\nmultiplier\022\r\n\005owner\030\014 " +
-      "\001(\t\022\r\n\005asset\030\r \001(\t\022\025\n\rinstance_type\030\016 \001(" +
-      "\t\022\025\n\rpricing_model\030\017 \001(\t\022\017\n\007cluster\030\020 \001(" +
-      "\tB\017B\rMazuRecordRawb\006proto3"
+      "tobuf/gogoproto/gogo.proto\"\214\002\n\rPodMessag" +
+      "eRaw\022\020\n\010pod_name\030\001 \001(\t\022\022\n\nstart_time\030\002 \001" +
+      "(\003\022\020\n\010end_time\030\003 \001(\003\022\025\n\rcpu_requested\030\004 " +
+      "\001(\003\022\025\n\rgpu_requested\030\005 \001(\003\022\030\n\020memory_req" +
+      "uested\030\006 \001(\003\0224\n\006labels\030\007 \003(\0132$.podmsgraw" +
+      ".PodMessageRaw.LabelsEntry\022\026\n\016ingestion_" +
+      "time\030\010 \001(\003\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r" +
+      "\n\005value\030\002 \001(\t:\0028\001B\017B\rMazuRecordRawb\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2249,12 +1433,13 @@ public final class MazuRecordRaw {
     internal_static_podmsgraw_PodMessageRaw_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_podmsgraw_PodMessageRaw_descriptor,
-        new java.lang.String[] { "PodName", "JobName", "StartTime", "EndTime", "CpuRequested", "GpuRequested", "MemoryRequested", "CpuCost", "GpuCost", "MemoryCost", "Multiplier", "Owner", "Asset", "InstanceType", "PricingModel", "Cluster", });
-    com.google.protobuf.ExtensionRegistry registry =
-        com.google.protobuf.ExtensionRegistry.newInstance();
-    registry.add(com.google.protobuf.GoGoProtos.jsontag);
-    com.google.protobuf.Descriptors.FileDescriptor
-        .internalUpdateFileDescriptor(descriptor, registry);
+        new java.lang.String[] { "PodName", "StartTime", "EndTime", "CpuRequested", "GpuRequested", "MemoryRequested", "Labels", "IngestionTime", });
+    internal_static_podmsgraw_PodMessageRaw_LabelsEntry_descriptor =
+      internal_static_podmsgraw_PodMessageRaw_descriptor.getNestedTypes().get(0);
+    internal_static_podmsgraw_PodMessageRaw_LabelsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_podmsgraw_PodMessageRaw_LabelsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     com.google.protobuf.GoGoProtos.getDescriptor();
   }
 

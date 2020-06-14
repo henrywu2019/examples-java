@@ -11,8 +11,6 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="examples-java" target="1.8" />
-      <module name="examples-java (1)" target="1.8" />
-      <module name="flink-examples" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
